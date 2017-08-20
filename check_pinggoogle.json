@@ -1,0 +1,6 @@
+{
+	"id" : "pinggoogle",
+	"name": "pinggoogle",
+	"script": "ping -c1 google.com",
+	"interval": "30s"
+}

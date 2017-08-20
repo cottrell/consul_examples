@@ -1,0 +1,10 @@
+{
+	"id": "httpserver",
+	"name": "httpserver",
+	"tags": ["web"],
+	"port": 3000,
+  	"check": {
+		"script": "curl localhost:3000",
+		"interval": "2s"
+	}
+}

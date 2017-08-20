@@ -2,9 +2,19 @@
 # https://www.consul.io/api/agent.html
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-PORT=$($DIR/get_free_port.sh)
+# PORT=$($DIR/get_free_port.sh)
 
-# python -m http.server --cgi $PORT
+curl --request PUT --data @$DIR/check_pinggoogle.json http://localhost:8500/v1/agent/check/register
+curl --request PUT --data @$DIR/service_httpserver.json http://localhost:8500/v1/agent/service/register
+read -p "Setup service and checks. Service check should be failing."
+python -m http.server --cgi 3000 &
+read -p "Started http.server. Service check should be passing."
+kill %1
+read -p "Stopped http.server. Check should failing."
+curl --request PUT http://localhost:8500/v1/agent/check/deregister/pinggoogle
+curl --request PUT http://localhost:8500/v1/agent/service/deregister/httpserver
+read -p "Deregistered service and checks. Done."
+
 # curl http://localhost:8500/v1/agent/checks
 # curl --request PUT --data @payload.json http://localhost:8500/v1/agent/check/register
 # curl --request PUT http://localhost:8500/v1/agent/check/deregister/:checkid
