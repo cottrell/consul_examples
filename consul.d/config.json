@@ -1,0 +1,9 @@
+{
+	"datacenter" : "dc1",
+	"node_name" : "consultest",
+	"bootstrap": true,
+	"server": true,
+	"ui": true,
+	"log_level": "debug",
+	"disable_remote_exec": false
+}

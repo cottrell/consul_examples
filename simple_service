@@ -1,0 +1,19 @@
+#!/bin/bash
+# https://www.consul.io/api/agent.html
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PORT=$($DIR/get_free_port.sh)
+
+# python -m http.server --cgi $PORT
+# curl http://localhost:8500/v1/agent/checks
+# curl --request PUT --data @payload.json http://localhost:8500/v1/agent/check/register
+# curl --request PUT http://localhost:8500/v1/agent/check/deregister/:checkid
+# curl http://localhost:8500/v1/agent/check/pass/:checkid
+# curl http://localhost:8500/v1/agent/check/warn/:checkid
+# curl http://localhost:8500/v1/agent/check/fail/:checkid
+# curl --request PUT --data @payload.json http://localhost:8500/v1/agent/check/update/:checkid
+#
+# curl http://localhost:8500/v1/agent/services
+# curl --request PUT --data @payload.json http://localhost:8500/v1/agent/service/register
+# curl --request PUT http://localhost:8500/v1/agent/service/deregister/:serviceid
+# curl --request PUT http://localhost:8500/v1/agent/service/maintenance/:serviceid

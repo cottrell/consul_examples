@@ -1,0 +1,7 @@
+#!/bin/bash
+# see localhost:8500/ui
+# NOTE: if you use -dev flag, kv store is not persisted
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+echo consul agent -config-dir=$DIR/consul.d -data-dir=$DIR/var
+consul agent -config-dir=$DIR/consul.d -data-dir=$DIR/var

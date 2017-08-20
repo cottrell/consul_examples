@@ -1,0 +1,12 @@
+#!/bin/bash
+consul kv get test/foo
+consul kv put test/foo bar
+consul kv get test/foo
+envconsul -pristine -upcase -sanitize -prefix test env
+# https://www.consul.io/api/agent.html
+# curl http://localhost:8500/v1/agent/members
+# curl http://localhost:8500/v1/agent/self
+# curl http://localhost:8500/v1/agent/reload
+# curl http://localhost:8500/v1/agent/maintenance
+# curl http://localhost:8500/v1/agent/metrics
+# curl http://localhost:8500/v1/agent/monitor # stream logs, blocking
